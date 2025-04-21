@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TechFix.Master.cs" Inherits="TechFix.Site3" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>TechFix</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            height: 65px;
+        }
+    </style>
+</head>
+<body style="height: 154px">
+    <form id="form1" runat="server">
+        <div>
+            <asp:Panel ID="Panel1" runat="server" BackColor="#CC99FF" Font-Bold="True" Font-Size="75px" ForeColor="#660066" Height="104px" HorizontalAlign="Center">
+                &nbsp;TechFix Computer Shop&nbsp;&nbsp;&nbsp;&nbsp;
+            </asp:Panel>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="footer" style="background-color: #A959F9; color: white; padding: 20px; text-align: center;">
+    <p id="para" style="margin: 10px 0;">&copy <span id="yearText"></span> TechFix. All rights reserved.</p>
+    <p style="margin: 10px 0;">Contact us: 
+        <a href="tel:+94112567890" style="color: #660066; text-decoration: none;">+9411-256-7890</a> | 
+        <a href="mailto:info@techfix.com" style="color: #660066; text-decoration: none;">info@techfix.com</a>
+    </p>
+    <p style="margin: 10px 0;">Location: 123 Tech Street, Colombo, FC 12345</p>
+    <p style="margin: 10px 0;">
+        Follow us: 
+        <a href="https://facebook.com/TechFix" style="color: #660066; text-decoration: none;">Facebook</a> | 
+        <a href="https://twitter.com/TechFix" style="color: #660066; text-decoration: none;">Twitter</a> | 
+        <a href="https://instagram.com/TechFix" style="color: #660066; text-decoration: none;">Instagram</a>
+    </p>
+</div>
+
+<script>
+    document.getElementById("yearText").innerHTML = new Date().getFullYear();
+</script>
+
+    </form>
+</body>
+</html>

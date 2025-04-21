@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="insertProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertProductsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateProductsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteProductsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findProductsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="findAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="insertProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:insertProducts" />
+  </wsdl:message>
+  <wsdl:message name="insertProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:insertProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:updateProducts" />
+  </wsdl:message>
+  <wsdl:message name="updateProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:updateProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteProducts" />
+  </wsdl:message>
+  <wsdl:message name="deleteProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="findProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:findProducts" />
+  </wsdl:message>
+  <wsdl:message name="findProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:findProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllSoapIn">
+    <wsdl:part name="parameters" element="tns:findAll" />
+  </wsdl:message>
+  <wsdl:message name="findAllSoapOut">
+    <wsdl:part name="parameters" element="tns:findAllResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InventoryA_ManagementSystemSoap">
+    <wsdl:operation name="insertProducts">
+      <wsdl:input message="tns:insertProductsSoapIn" />
+      <wsdl:output message="tns:insertProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateProducts">
+      <wsdl:input message="tns:updateProductsSoapIn" />
+      <wsdl:output message="tns:updateProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteProducts">
+      <wsdl:input message="tns:deleteProductsSoapIn" />
+      <wsdl:output message="tns:deleteProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findProducts">
+      <wsdl:input message="tns:findProductsSoapIn" />
+      <wsdl:output message="tns:findProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <wsdl:input message="tns:findAllSoapIn" />
+      <wsdl:output message="tns:findAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InventoryA_ManagementSystemSoap" type="tns:InventoryA_ManagementSystemSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertProducts">
+      <soap:operation soapAction="http://tempuri.org/insertProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateProducts">
+      <soap:operation soapAction="http://tempuri.org/updateProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProducts">
+      <soap:operation soapAction="http://tempuri.org/deleteProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findProducts">
+      <soap:operation soapAction="http://tempuri.org/findProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <soap:operation soapAction="http://tempuri.org/findAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InventoryA_ManagementSystemSoap12" type="tns:InventoryA_ManagementSystemSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertProducts">
+      <soap12:operation soapAction="http://tempuri.org/insertProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateProducts">
+      <soap12:operation soapAction="http://tempuri.org/updateProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProducts">
+      <soap12:operation soapAction="http://tempuri.org/deleteProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findProducts">
+      <soap12:operation soapAction="http://tempuri.org/findProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <soap12:operation soapAction="http://tempuri.org/findAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InventoryA_ManagementSystem">
+    <wsdl:port name="InventoryA_ManagementSystemSoap" binding="tns:InventoryA_ManagementSystemSoap">
+      <soap:address location="https://localhost:44399/InventoryA_ManagementSystem.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InventoryA_ManagementSystemSoap12" binding="tns:InventoryA_ManagementSystemSoap12">
+      <soap12:address location="https://localhost:44399/InventoryA_ManagementSystem.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ApproveQuotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="quotationId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="supplier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="requiredQuantity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalPrice" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApproveQuotationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApproveQuotationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RejectQuotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="quotationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RejectQuotationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RejectQuotationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ApproveQuotationSoapIn">
+    <wsdl:part name="parameters" element="tns:ApproveQuotation" />
+  </wsdl:message>
+  <wsdl:message name="ApproveQuotationSoapOut">
+    <wsdl:part name="parameters" element="tns:ApproveQuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RejectQuotationSoapIn">
+    <wsdl:part name="parameters" element="tns:RejectQuotation" />
+  </wsdl:message>
+  <wsdl:message name="RejectQuotationSoapOut">
+    <wsdl:part name="parameters" element="tns:RejectQuotationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Manage_QuotationsSoap">
+    <wsdl:operation name="ApproveQuotation">
+      <wsdl:input message="tns:ApproveQuotationSoapIn" />
+      <wsdl:output message="tns:ApproveQuotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectQuotation">
+      <wsdl:input message="tns:RejectQuotationSoapIn" />
+      <wsdl:output message="tns:RejectQuotationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Manage_QuotationsSoap" type="tns:Manage_QuotationsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ApproveQuotation">
+      <soap:operation soapAction="http://tempuri.org/ApproveQuotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectQuotation">
+      <soap:operation soapAction="http://tempuri.org/RejectQuotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Manage_QuotationsSoap12" type="tns:Manage_QuotationsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ApproveQuotation">
+      <soap12:operation soapAction="http://tempuri.org/ApproveQuotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectQuotation">
+      <soap12:operation soapAction="http://tempuri.org/RejectQuotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Manage_Quotations">
+    <wsdl:port name="Manage_QuotationsSoap" binding="tns:Manage_QuotationsSoap">
+      <soap:address location="https://localhost:44399/Manage_Quotations.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Manage_QuotationsSoap12" binding="tns:Manage_QuotationsSoap12">
+      <soap12:address location="https://localhost:44399/Manage_Quotations.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
